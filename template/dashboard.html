@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+     <!-- Nav Start -->
+
+     <!-- Mobile Nav -->
+     <nav class="navbar navbar-expand-lg sticky-lg-top nav-products d-lg-none">
+        <div class="container-fluid">
+          <a class="fajar-mobile ms-0 text-decoration-none fajar-products ms-4 d-lg-none" href="/">nay</a>
+         <a href="" class="text-dark me-2">
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                </svg>
+            </a>
+        </div> 
+      </nav>
+      <!-- End -->
+
+      <!-- Desktop Nav -->
+      <nav class="navbar navbar-expand-lg navbar-custom-desktop d-none d-lg-block sticky-lg-top">
+        <div class="container-fluid">
+          <a class="text-decoration-none fajar-products ms-4 d-lg-block d-none" href="/">nay</a>
+            <div>
+                <a href="" class="text-dark me-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                       </svg>
+                   </a>
+            </div>
+          </div>
+        </div>
+    </nav>
+      <!-- End -->
+    <!-- Nav End -->
+
+    <!-- Content Start Mobile -->
+    <div class="container d-lg-none">
+        <p class="fw-medium mt-3">
+            Hi, {{ .user.Firstname }} {{ .user.Lastname }}
+        </p>
+        <hr>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
+                <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a2 2 0 0 1-1-.268M1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1"/>
+        </svg>
+        <a href="/wallet" class="text-decoration-none text-dark">Dompet <span class="text-success">(Rp 0)</span></a>
+    </div>
+      <hr>
+      <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-coin" viewBox="0 0 16 16">
+              <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+              <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+            </svg>
+            <a href="/cashback" class="text-decoration-none text-dark">Cashback <span class="text-success">(Rp 20.000)</span></a>
+        </div>
+        <hr>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
+            </svg>
+      <a href="/order" class="text-decoration-none text-dark">Status Pesanan</a>
+    </div>
+      <hr>
+      <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+              <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+            </svg>
+            <a href="/review" class="text-decoration-none text-dark">Ulasan Saya</a>
+        </div>
+        <hr>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                <path d="M7.5 1v7h1V1z"/>
+                <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/>
+            </svg>
+            <a href="/logout" class="text-decoration-none text-dark">Logout</a>
+        </div>
+        <hr>
+    </div>
+        <!-- Mobile End -->
+
+        <!-- Content Desktop -->
+        <div class="container d-none d-lg-flex flex-wrap my-5">
+          <div class="col-3 border">
+            <div class="text-dark text-center fw-medium p-2">Akun Saya</div>
+          <a href="/dashboard/{{ .user.Id }}" class="text-white">
+            <div class="fw-normal p-2 text-white  bg-dark">Akun Saya</div>
+          </a>
+          <a href="/wallet" class="text-dark">
+            <div class="fw-normal p-2">Dompet</div>
+          </a>
+          <a href="/cashback" class="text-dark">
+            <div class="fw-normal p-2">Cashback</div>
+          </a>
+          <a href="/order" class="text-dark">
+            <div class="fw-normal p-2">Status Pesanan</div>
+          </a>
+          <a href="/review" class="text-dark">
+            <div class="fw-normal p-2">Ulasan Saya</div>
+          </a>
+          <a href="/logout" class="text-dark">
+            <div class="fw-normal p-2">Logout</div>
+          </a>
+          </div>
+          <div class="col-8 ms-2 border">
+            <div class="text-dark text-center fw-medium p-2 bg-secondary">Informasi Kontak</div>
+            <div class="fw-lighter p-2 ms-3">Nama : <span class="ms-5">{{ .user.Firstname }} {{ .user.Lastname }}</span></div>
+            <div class="fw-lighter p-2 ms-3">Email : <span class="ms-5">{{ .user.Email }}</span></div>
+            <div class="fw-lighter p-2 ms-3">Password : <span class="ms-5"> ******** </span></div>
+            <a href="/forgot-password" class="text-decoration-none ms-3 p-2"> forgot password?</a>
+          </div>
+
+          <div class="col-3 bg-transparent">
+          </div>
+          {{ if eq .addresses.User_Id 0}}
+          <form action="/dashboard/{{ .user.Id }}" method="post" class="col-8 ms-2 border mt-3">
+            <div class="row m-4">
+              <div class="col">
+                <input type="text" class="form-control" name="firstName" placeholder="First name" aria-label="First name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name">
+              </div>
+            </div>
+            <div class="row m-4">
+              <div class="col-4">
+                <input type="text" class="form-control" name="phone" placeholder="Nomor HP" aria-label="Nomor HP">
+              </div>
+            </div>
+            <div class="row m-4">
+              <div class="col-6">
+                <input type="text" class="form-control" name="address1" placeholder="Alamat" aria-label="Alamat">
+              </div>
+            </div>
+            <div class="row m-4">
+              <div class="col">
+                <input type="text" class="form-control" name="province" placeholder="Provinsi" aria-label="Provinsi">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="city" placeholder="Kabupaten" aria-label="Kabupaten">
+              </div>
+            </div>
+            <div class="row m-4">
+              <div class="col">
+                <input type="text" class="form-control"name="subdistrict" placeholder="Kecamatan" aria-label="Kecamatan">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="postCode" placeholder="Kode Pos" aria-label="Kode Pos">
+              </div>
+            </div>
+            <div class="row m-4">
+              <div class="col">
+            <button type="submit" class="btn btn-secondary">Tambah Alamat</button>
+              </div>
+            </div>
+          </form>
+          {{ else }}
+          <div class="col-8 ms-2 border border-top-0 mt-3">
+            <div class="bg-secondary text-center pe-2 py-2"> Alamat Saya </div>
+            <hr class="mx-4 my-3">
+            <div class="fs-6 fw-medium text-secondary p-2 ms-3">Alamat</div>
+            <div class="fw-lighter p-2 ms-3">{{ .addresses.Firstname }} {{ .addresses.Lastname }}, {{ .addresses.Phone }}</div>
+            <div class="fw-lighter p-2 ms-3 mb-5">{{ .addresses.Address1 }}, {{ .addresses.Subdistrict }}, {{ .addresses.City }}, {{ .addresses.Province}},{{ .addresses.Postcode }} </div>
+          </div>
+          {{ end }}
+        </div>
+        <!-- Desktop End -->
+
+     
+ <!-- Footer Desktop Start -->
+ <footer class="text-center d-lg-block d-none text-lg-start text-white" style="background-color: #3a3b39">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--fajar-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <a class="text-decoration-none mb-3 fajar" href="/">nay</a>
+          <p>
+            Kami menciptakan gaya dengan kearifan lokal mendorong unsur budaya Nusantara yang indah dan pesonanya untuk memperlihatkan kepada dunia
+          </p>
+        </div>
+        <!--fajar-->
+        
+      <!--Layanan-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Layanan</h5>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="/support" class="text-white text-decoration-none">Bantuan</a>
+            </li>
+            <li>
+              <a href="/contact" class="text-white text-decoration-none">Hubungi Kami</a>
+            </li>
+            <li>
+              <a href="/order" class="text-white text-decoration-none">Status Order</a>
+            </li>
+            <li>
+              <a href="/sell-with-us" class="text-white text-decoration-none">Cara Berjualan</a>
+            </li>
+          </ul>
+        </div>
+        <!--Layanan-->
+
+        <!--Kontak-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Kontak</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.3125 8.53223V2.34375H16.4062V5.19775L12.5 1.5625L0 13.2812H3.125V23.4375H10.1562V15.625H14.8438V23.4375H21.875V13.2812H25L20.3125 8.53223Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+              </svg>
+              <span class="text-white text-decoration-none">Jl. Raya Otonom Pasar Kemis, Desa Talagasari, Cikupa, Kabupaten Tangerang, Banten, Indonesia.</span>
+            </li>
+            <li class="mb-3">
+              <svg width="25" height="19" viewBox="0 0 25 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 2.375C25 1.06875 23.875 0 22.5 0H2.5C1.125 0 0 1.06875 0 2.375V16.625C0 17.9312 1.125 19 2.5 19H22.5C23.875 19 25 17.9312 25 16.625V2.375ZM22.5 2.375L12.5 8.3125L2.5 2.375H22.5ZM22.5 16.625H2.5V4.75L12.5 10.6875L22.5 4.75V16.625Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+              </svg>
+              <span class="text-white text-decoration-none">budimanfajar660@gmail.com</span>
+            </li>
+            <li class="mb-2">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.3568 3.63756C20.205 2.47997 18.8331 1.56215 17.3212 0.937635C15.8092 0.313116 14.1873 -0.00560013 12.5502 7.44618e-05C5.69095 7.44618e-05 0.100503 5.56256 0.100503 12.3875C0.100503 14.575 0.678392 16.7 1.75879 18.575L0 25L6.59548 23.275C8.41708 24.2625 10.4648 24.7875 12.5502 24.7875C19.4095 24.7875 25 19.225 25 12.4C25 9.08755 23.706 5.97506 21.3568 3.63756ZM12.5502 22.6875C10.691 22.6875 8.86935 22.1875 7.27387 21.25L6.89698 21.025L2.97739 22.05L4.0201 18.25L3.76884 17.8625C2.73586 16.2212 2.18736 14.3241 2.18593 12.3875C2.18593 6.71255 6.83417 2.08757 12.5377 2.08757C15.3015 2.08757 17.902 3.16257 19.8492 5.11256C20.8134 6.06751 21.5775 7.20338 22.0972 8.45433C22.6169 9.70528 22.8819 11.0464 22.8769 12.4C22.902 18.075 18.2538 22.6875 12.5502 22.6875ZM18.2286 14.9875C17.9146 14.8375 16.3819 14.0875 16.1055 13.975C15.8166 13.875 15.6156 13.825 15.402 14.125C15.1884 14.4375 14.598 15.1375 14.4221 15.3375C14.2462 15.55 14.0578 15.575 13.7437 15.4125C13.4296 15.2625 12.4246 14.925 11.2437 13.875C10.3141 13.05 9.69849 12.0375 9.51005 11.725C9.33417 11.4125 9.48492 11.25 9.64824 11.0875C9.78643 10.95 9.96231 10.725 10.1131 10.55C10.2638 10.375 10.3266 10.2375 10.4271 10.0375C10.5276 9.82504 10.4774 9.65005 10.402 9.50005C10.3266 9.35005 9.69849 7.82505 9.44723 7.20005C9.19598 6.60006 8.93216 6.67505 8.74372 6.66255H8.1407C7.92713 6.66255 7.6005 6.73755 7.31156 7.05005C7.03517 7.36255 6.23115 8.11255 6.23115 9.63755C6.23115 11.1625 7.34925 12.6375 7.5 12.8375C7.65075 13.05 9.69849 16.175 12.8141 17.5125C13.5553 17.8375 14.1332 18.025 14.5854 18.1625C15.3266 18.4 16.005 18.3625 16.5452 18.2875C17.1482 18.2 18.392 17.5375 18.6432 16.8125C18.907 16.0875 18.907 15.475 18.8191 15.3375C18.7312 15.2 18.5427 15.1375 18.2286 14.9875Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+              </svg>
+              <span class="text-white text-decoration-none">+62 838 7363 0760</span>
+            </li>
+          </ul>
+        </div>
+        <!--Kontak End-->
+
+        <!--Temukan Kami-->
+        <div class="col-lg-3 col-md-6 d-flex justify-content-end align-items-start">
+          <div class="w-auto mb-4 mb-md-0">
+            <h5 class="text-uppercase">Temukan Kami</h5>
+
+            <ul class="list-unstyled d-flex">
+              <li>
+                <a href="/" class="text-white me-4"><svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 12.1111C1 6.87361 1 4.25417 2.62778 2.62778C4.25417 1 6.87361 1 12.1111 1H14.8889C20.1264 1 22.7458 1 24.3722 2.62778C26 4.25417 26 6.87361 26 12.1111V14.8889C26 20.1264 26 22.7458 24.3722 24.3722C22.7458 26 20.1264 26 14.8889 26H12.1111C6.87361 26 4.25417 26 2.62778 24.3722C1 22.7458 1 20.1264 1 14.8889V12.1111Z" stroke="#FEFEFE" stroke-opacity="0.996078" stroke-width="2"/>
+                  <path d="M19.7503 9.33335C20.9009 9.33335 21.8337 8.40061 21.8337 7.25002C21.8337 6.09943 20.9009 5.16669 19.7503 5.16669C18.5997 5.16669 17.667 6.09943 17.667 7.25002C17.667 8.40061 18.5997 9.33335 19.7503 9.33335Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+                  <path d="M13.4997 17.6668C15.8009 17.6668 17.6663 15.8013 17.6663 13.5001C17.6663 11.1989 15.8009 9.33344 13.4997 9.33344C11.1985 9.33344 9.33301 11.1989 9.33301 13.5001C9.33301 15.8013 11.1985 17.6668 13.4997 17.6668Z" stroke="#FEFEFE" stroke-opacity="0.996078" stroke-width="2"/>
+                </svg></a>
+              </li>
+              <li>
+                <a href="/" class="text-white me-4"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25 12.5313C25 5.61404 19.4 0 12.5 0C5.6 0 0 5.61404 0 12.5313C0 18.5965 4.3 23.6466 10 24.812V16.2907H7.5V12.5313H10V9.3985C10 6.97995 11.9625 5.01253 14.375 5.01253H17.5V8.77193H15C14.3125 8.77193 13.75 9.33584 13.75 10.0251V12.5313H17.5V16.2907H13.75V25C20.0625 24.3734 25 19.0351 25 12.5313Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+                </svg></a>
+              </li>
+              <li>
+                <a href="/" class="text-white"><svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.1668 20.625L21.5193 16.5L14.1668 12.375V20.625ZM30.5435 9.85875C30.7277 10.505 30.8552 11.3712 30.9402 12.4712C31.0393 13.5712 31.0818 14.52 31.0818 15.345L31.1668 16.5C31.1668 19.5113 30.9402 21.725 30.5435 23.1413C30.1893 24.3787 29.3677 25.1762 28.0927 25.52C27.4268 25.6987 26.2085 25.8225 24.3385 25.905C22.4968 26.0012 20.811 26.0425 19.2527 26.0425L17.0002 26.125C11.0643 26.125 7.36683 25.905 5.90766 25.52C4.63266 25.1762 3.811 24.3787 3.45683 23.1413C3.27266 22.495 3.14516 21.6288 3.06016 20.5288C2.961 19.4288 2.9185 18.48 2.9185 17.655L2.8335 16.5C2.8335 13.4887 3.06016 11.275 3.45683 9.85875C3.811 8.62125 4.63266 7.82375 5.90766 7.48C6.5735 7.30125 7.79183 7.1775 9.66183 7.095C11.5035 6.99875 13.1893 6.9575 14.7477 6.9575L17.0002 6.875C22.936 6.875 26.6335 7.095 28.0927 7.48C29.3677 7.82375 30.1893 8.62125 30.5435 9.85875Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+                </svg></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--Temukan Kami End-->
+      </div>
+
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="mb-4" />
+
+    <!-- Section: CTA -->
+    <section class="">
+      <p class="d-flex justify-content-center align-items-center">
+        <span class="me-3">Register for free</span>
+        <a href="/register" class="sign-up btn btn-outline-light btn-rounded text-decoration-none text-white">
+          Sign up!
+        </a>
+      </p>
+    </section>
+  </div>
+  <!-- Grid container -->
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2024 Copyright:
+    <a class="text-white text-decoration-none" href="/">fajar</a>
+  </div>
+</footer>
+<!-- Footer Desktop End -->
+
+<!-- Footer Mobile Start -->
+<div class="text-center mt-2 align-items-end d-lg-none bottom-0 overflow-hidden position-fixed left-0 w-100">
+  <div class="row align-items-end border-top p-2">
+    <div class="col">
+     <a href="/contact" class="text-decoration-none mobile-footer text-dark">
+       Kontak
+     </a> 
+    </div>
+    <div class="col">
+      <a href="/about" class="text-decoration-none text-dark mobile-footer">
+        Tentang nay
+      </a>
+    </div>
+    <div class="col">
+      <a href="/login" class="text-decoration-none text-dark mobile-footer">
+        Login
+      </a>
+    </div>
+  </div>
+  <div class="row align-items-end border-top border-bottom mb-3 p-2">
+    <div class="col">
+      <a href="/support" class="text-decoration-none text-dark mobile-footer">
+        Bantuan
+      </a>
+    </div>
+    <div class="col">
+      <a href="/term-of-us" class="text-decoration-none text-dark mobile-footer">
+      Syarat Dan Ketentuan
+    </a>
+    </div>
+    <div class="col">
+      <a href="/privacy-policy" class="text-decoration-none text-dark mobile-footer">
+        Kebijakan Privasi
+      </a>
+    </div>
+  </div>
+  <div class="row align-items-end mb-1">
+    <div class="col">
+      <a href="/" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/c/men" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/cart" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/whishlist" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/dashboard/{{ .user.Id }}" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="row align-items-end">
+      <div class="col footer-mobile">
+        Home
+      </div>
+      <div class="col footer-mobile">
+        Kategori
+      </div>
+      <div class="col footer-mobile">
+        Keranjang
+      </div>
+      <div class="col footer-mobile">
+       Wishlist
+      </div>
+      <div class="col footer-mobile">
+        Akun 
+      </div>
+  </div>
+  </div>
+  <!-- Footer Mobile End -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

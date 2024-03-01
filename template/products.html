@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produk nay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  <body>
+     <!-- Nav Start -->
+     <!-- Mobile Nav -->
+     <nav class="navbar navbar-expand-lg sticky-lg-top nav-products d-lg-none">
+        <div class="container">
+          <a class="fajar-mobile ms-0 text-decoration-none fajar-products ms-4 d-lg-none" href="/">nay</a>
+        </div> 
+      </nav>
+      <div class="search container d-lg-none">
+          <form action="" role="search" class="d-flex">
+              <input type="search" name="search" class="input" placeholder="Search From Products" id="search">
+            </form>
+      </div>
+      <!-- End -->
+
+      <!-- Desktop Nav -->
+      <nav class="navbar navbar-expand-lg navbar-custom-desktop d-none d-lg-block sticky-lg-top">
+        <div class="container-fluid">
+          <a class="text-decoration-none fajar-products ms-4 d-lg-block d-none" href="/">nay</a>
+          <div class="collapse d-none d-lg-block navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-2  mb-lg-0">
+              {{ range $i,$category := .categories }}
+              <li class="nav-item">
+                <a class="nav-link nav-menu-products text-secondary" href="/c/{{ $category.Slug }}">{{ $category.Name }}</a>
+              </li>
+              {{ end }}
+            </ul>
+            <form class="search-form" role="search">
+                <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <div class="ms-3 me-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="2s" height="25" fill="#3a3b39" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+              </svg>
+             {{ if .Auth }}
+             <a href="/dashboard/{{ .user.Id }}" class="text-decoration-none text-dark">
+              <span class="ms-2 mt-2">Hi, {{.user.Firstname }}</span>
+            </a>
+             {{ else }}
+              <a href="/login" class="text-decoration-none text-dark"> Login </a> / <a href="/register" class="text-decoration-none text-dark"> Register </a>
+               {{ end }}
+            </div>
+            <div>
+                 <a href="/cart" class="text-decoration-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#3a3b39" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                  </svg>
+                </a> 
+            </div>
+          </div>
+        </div>
+    </nav>
+      <!-- End -->
+    <!-- Nav End -->
+
+    <!-- Content 1 -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row gx-5">
+          <aside class="col-lg-6">
+            <div class="border rounded-4 mb-3 d-flex justify-content-center">
+              <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp">
+                <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="https://source.unsplash.com/540x570/?{{ .product.Name }}" />
+              </a>
+            </div>
+            <div class="d-flex justify-content-center mb-3 mt-5">
+              <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp" class="item-thumb">
+                <img width="60" height="60" class="rounded-2" src="https://source.unsplash.com/100x100/?{{ .product.Name }}" />
+              </a>
+              <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big2.webp" class="item-thumb">
+                <img width="60" height="60" class="rounded-2" src="https://source.unsplash.com/100x100/?{{ .product.Name }}" />
+              </a>
+              <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big3.webp" class="item-thumb">
+                <img width="60" height="60" class="rounded-2" src="https://source.unsplash.com/100x100/?{{ .product.Name }}" />
+              </a>
+              <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big4.webp" class="item-thumb">
+                <img width="60" height="60" class="rounded-2" src="https://source.unsplash.com/100x100/?{{ .product.Name }}" />
+              </a>
+              <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" class="item-thumb">
+                <img width="60" height="60" class="rounded-2" src="https://source.unsplash.com/100x100/?{{ .product.Name }}" />
+              </a>
+            </div>
+            <!-- thumbs-wrap.// -->
+            <!-- gallery-wrap .end// -->
+          </aside>
+          <main class="col-lg-6">
+            <div class="ps-lg-3">
+              <form action="/p/{{ .product.Slug }}" method="post">
+                <input type="hidden" name="user_id" value="{{ .user.Id }}">
+                <input type="hidden" name="product_id" value="{{ .product.Id }}">
+              <h4 class="title text-dark">
+                {{ .product.Description }} <br><br>
+                {{ .product.Name }}
+              </h4>
+              <div class="d-flex flex-row my-3">
+                <div class="text-warning mb-1 me-2">
+                  <span class="ms-1">
+                    4.5
+                  </span>
+                </div>
+                <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
+                <span class="text-success ms-2">In stock</span>
+              </div>
+              <div class="mb-3">
+                <span class="h5">Rp {{ .product.Price }}</span>
+                <span class="text-muted">/per box</span>
+              </div>
+              <p>
+                {{ .product.Body }}    
+              </p>
+              <div class="row">
+                <dt class="col-3">Type:</dt>
+                <dd class="col-9">Regular</dd>
+
+                <dt class="col-3">Color</dt>
+                <dd class="col-9">Brown</dd>
+    
+                <dt class="col-3">Material</dt>
+                <dd class="col-9">Cotton, Jeans</dd>
+    
+                <dt class="col-3">Brand</dt>
+                <dd class="col-9">Reebook</dd>
+              </div>
+              <hr/>
+              <div class="row mb-4">
+                <div class="col-md-4 col-6">
+                  <label class="mb-2">Size</label>
+                  <select class="form-select border border-secondary" style="height: 35px;">
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                  </select>
+                </div>
+                <!-- col.// -->
+                <div class="col-md-4 col-6 mb-3">
+                    <label class="mb-2 d-block">Quantity
+                    </label>
+                    <div class="input-group mb-3" style="width: 170px;">
+                      <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <input type="number" name="quantity" min="0" max="{{ .product.Quantity }}" class="form-control text-center border border-secondary" placeholder="0" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                      <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              <button type="submit" class="btn btn-secondary">Add to Cart</button>
+            </form>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+    <!-- End -->
+    
+    <!-- Content 2 -->
+    <section class="bg-light border-top py-4">
+      <div class="container">
+        <div class="row gx-4">
+          <div class="col-lg-8 mb-4">
+            <div class="border rounded-2 px-3 py-2 bg-white">
+              <!-- Pills navs -->
+              <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                <li class="nav-item d-flex" role="presentation">
+                  <a class="nav-link d-flex align-items-center justify-content-center w-100 active" id="ex1-tab-1" data-mdb-toggle="pill" href="#ex1-pills-1" role="tab" aria-controls="ex1-pills-1" aria-selected="true">Specification</a>
+                </li>
+                <li class="nav-item d-flex" role="presentation">
+                  <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-2" data-mdb-toggle="pill" href="#ex1-pills-2" role="tab" aria-controls="ex1-pills-2" aria-selected="false">Warranty info</a>
+                </li>
+                <li class="nav-item d-flex" role="presentation">
+                  <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-3" data-mdb-toggle="pill" href="#ex1-pills-3" role="tab" aria-controls="ex1-pills-3" aria-selected="false">Shipping info</a>
+                </li>
+                <li class="nav-item d-flex" role="presentation">
+                  <a class="nav-link d-flex align-items-center justify-content-center w-100" id="ex1-tab-4" data-mdb-toggle="pill" href="#ex1-pills-4" role="tab" aria-controls="ex1-pills-4" aria-selected="false">Seller profile</a>
+                </li>
+              </ul>
+              <!-- Pills navs -->
+    
+              <!-- Pills content -->
+              <div class="tab-content" id="ex1-content">
+                <div class="tab-pane fade show active" id="ex1-pills-1" role="tabpanel" aria-labelledby="ex1-tab-1">
+                  <p>
+                    With supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                  </p>
+                  <div class="row mb-2">
+                    <div class="col-12 col-md-6">
+                      <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-check text-success me-2"></i>Some great feature name here</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Lorem ipsum dolor sit amet, consectetur</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Duis aute irure dolor in reprehenderit</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Optical heart sensor</li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-6 mb-0">
+                      <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success me-2"></i>Easy fast and ver good</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Some great feature name here</li>
+                        <li><i class="fas fa-check text-success me-2"></i>Modern style and design</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <table class="table border mt-3 mb-2">
+                    <tr>
+                      <th class="py-2">Display:</th>
+                      <td class="py-2">13.3-inch LED-backlit display with IPS</td>
+                    </tr>
+                    <tr>
+                      <th class="py-2">Processor capacity:</th>
+                      <td class="py-2">2.3GHz dual-core Intel Core i5</td>
+                    </tr>
+                    <tr>
+                      <th class="py-2">Camera quality:</th>
+                      <td class="py-2">720p FaceTime HD camera</td>
+                    </tr>
+                    <tr>
+                      <th class="py-2">Memory</th>
+                      <td class="py-2">8 GB RAM or 16 GB RAM</td>
+                    </tr>
+                    <tr>
+                      <th class="py-2">Graphics</th>
+                      <td class="py-2">Intel Iris Plus Graphics 640</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="tab-pane fade mb-2" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+                  Tab content or sample information now <br />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                </div>
+                <div class="tab-pane fade mb-2" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+                  Another tab content or sample information now <br />
+                  Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </div>
+                <div class="tab-pane fade mb-2" id="ex1-pills-4" role="tabpanel" aria-labelledby="ex1-tab-4">
+                  Some other tab content or sample information now <br />
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </div>
+              </div>
+              <!-- Pills content -->
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="px-0 border rounded-2 shadow-0">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Similar items</h5>
+                  <div class="d-flex mb-3">
+                    <a href="#" class="me-3">
+                      <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/8.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                    </a>
+                    <div class="info">
+                      <a href="#" class="nav-link mb-1">
+                        Rucksack Backpack Large <br />
+                        Line Mounts
+                      </a>
+                      <strong class="text-dark"> $38.90</strong>
+                    </div>
+                  </div>
+    
+                  <div class="d-flex mb-3">
+                    <a href="#" class="me-3">
+                      <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/9.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                    </a>
+                    <div class="info">
+                      <a href="#" class="nav-link mb-1">
+                        Summer New Men's Denim <br />
+                        Jeans Shorts
+                      </a>
+                      <strong class="text-dark"> $29.50</strong>
+                    </div>
+                  </div>
+    
+                  <div class="d-flex mb-3">
+                    <a href="#" class="me-3">
+                      <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/10.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                    </a>
+                    <div class="info">
+                      <a href="#" class="nav-link mb-1"> T-shirts with multiple colors, for men and lady </a>
+                      <strong class="text-dark"> $120.00</strong>
+                    </div>
+                  </div>
+    
+                  <div class="d-flex">
+                    <a href="#" class="me-3">
+                      <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                    </a>
+                    <div class="info">
+                      <a href="#" class="nav-link mb-1"> Blazer Suit Dress Jacket for Men, Blue color </a>
+                      <strong class="text-dark"> $339.90</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End -->
+
+      
+ <!-- Footer Desktop Start -->
+ <footer class="text-center d-lg-block d-none text-lg-start text-white" style="background-color: #3a3b39">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--fajar-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <a class="text-decoration-none mb-3 fajar" href="/">nay</a>
+          <p>
+            Kami menciptakan gaya dengan kearifan lokal mendorong unsur budaya Nusantara yang indah dan pesonanya untuk memperlihatkan kepada dunia
+          </p>
+        </div>
+        <!--fajar-->
+        
+      <!--Layanan-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Layanan</h5>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="/support" class="text-white text-decoration-none">Bantuan</a>
+            </li>
+            <li>
+              <a href="/contact" class="text-white text-decoration-none">Hubungi Kami</a>
+            </li>
+            <li>
+              <a href="/order" class="text-white text-decoration-none">Status Order</a>
+            </li>
+            <li>
+              <a href="/sell-with-us" class="text-white text-decoration-none">Cara Berjualan</a>
+            </li>
+          </ul>
+        </div>
+        <!--Layanan-->
+
+        <!--Kontak-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Kontak</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.3125 8.53223V2.34375H16.4062V5.19775L12.5 1.5625L0 13.2812H3.125V23.4375H10.1562V15.625H14.8438V23.4375H21.875V13.2812H25L20.3125 8.53223Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+              </svg>
+              <span class="text-white text-decoration-none">Jl. Raya Otonom Pasar Kemis, Desa Talagasari, Cikupa, Kabupaten Tangerang, Banten, Indonesia.</span>
+            </li>
+            <li class="mb-3">
+              <svg width="25" height="19" viewBox="0 0 25 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 2.375C25 1.06875 23.875 0 22.5 0H2.5C1.125 0 0 1.06875 0 2.375V16.625C0 17.9312 1.125 19 2.5 19H22.5C23.875 19 25 17.9312 25 16.625V2.375ZM22.5 2.375L12.5 8.3125L2.5 2.375H22.5ZM22.5 16.625H2.5V4.75L12.5 10.6875L22.5 4.75V16.625Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+              </svg>
+              <span class="text-white text-decoration-none">budimanfajar660@gmail.com</span>
+            </li>
+            <li class="mb-2">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.3568 3.63756C20.205 2.47997 18.8331 1.56215 17.3212 0.937635C15.8092 0.313116 14.1873 -0.00560013 12.5502 7.44618e-05C5.69095 7.44618e-05 0.100503 5.56256 0.100503 12.3875C0.100503 14.575 0.678392 16.7 1.75879 18.575L0 25L6.59548 23.275C8.41708 24.2625 10.4648 24.7875 12.5502 24.7875C19.4095 24.7875 25 19.225 25 12.4C25 9.08755 23.706 5.97506 21.3568 3.63756ZM12.5502 22.6875C10.691 22.6875 8.86935 22.1875 7.27387 21.25L6.89698 21.025L2.97739 22.05L4.0201 18.25L3.76884 17.8625C2.73586 16.2212 2.18736 14.3241 2.18593 12.3875C2.18593 6.71255 6.83417 2.08757 12.5377 2.08757C15.3015 2.08757 17.902 3.16257 19.8492 5.11256C20.8134 6.06751 21.5775 7.20338 22.0972 8.45433C22.6169 9.70528 22.8819 11.0464 22.8769 12.4C22.902 18.075 18.2538 22.6875 12.5502 22.6875ZM18.2286 14.9875C17.9146 14.8375 16.3819 14.0875 16.1055 13.975C15.8166 13.875 15.6156 13.825 15.402 14.125C15.1884 14.4375 14.598 15.1375 14.4221 15.3375C14.2462 15.55 14.0578 15.575 13.7437 15.4125C13.4296 15.2625 12.4246 14.925 11.2437 13.875C10.3141 13.05 9.69849 12.0375 9.51005 11.725C9.33417 11.4125 9.48492 11.25 9.64824 11.0875C9.78643 10.95 9.96231 10.725 10.1131 10.55C10.2638 10.375 10.3266 10.2375 10.4271 10.0375C10.5276 9.82504 10.4774 9.65005 10.402 9.50005C10.3266 9.35005 9.69849 7.82505 9.44723 7.20005C9.19598 6.60006 8.93216 6.67505 8.74372 6.66255H8.1407C7.92713 6.66255 7.6005 6.73755 7.31156 7.05005C7.03517 7.36255 6.23115 8.11255 6.23115 9.63755C6.23115 11.1625 7.34925 12.6375 7.5 12.8375C7.65075 13.05 9.69849 16.175 12.8141 17.5125C13.5553 17.8375 14.1332 18.025 14.5854 18.1625C15.3266 18.4 16.005 18.3625 16.5452 18.2875C17.1482 18.2 18.392 17.5375 18.6432 16.8125C18.907 16.0875 18.907 15.475 18.8191 15.3375C18.7312 15.2 18.5427 15.1375 18.2286 14.9875Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+              </svg>
+              <span class="text-white text-decoration-none">+62 838 7363 0760</span>
+            </li>
+          </ul>
+        </div>
+        <!--Kontak End-->
+
+        <!--Temukan Kami-->
+        <div class="col-lg-3 col-md-6 d-flex justify-content-end align-items-start">
+          <div class="w-auto mb-4 mb-md-0">
+            <h5 class="text-uppercase">Temukan Kami</h5>
+
+            <ul class="list-unstyled d-flex">
+              <li>
+                <a href="/" class="text-white me-4"><svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 12.1111C1 6.87361 1 4.25417 2.62778 2.62778C4.25417 1 6.87361 1 12.1111 1H14.8889C20.1264 1 22.7458 1 24.3722 2.62778C26 4.25417 26 6.87361 26 12.1111V14.8889C26 20.1264 26 22.7458 24.3722 24.3722C22.7458 26 20.1264 26 14.8889 26H12.1111C6.87361 26 4.25417 26 2.62778 24.3722C1 22.7458 1 20.1264 1 14.8889V12.1111Z" stroke="#FEFEFE" stroke-opacity="0.996078" stroke-width="2"/>
+                  <path d="M19.7503 9.33335C20.9009 9.33335 21.8337 8.40061 21.8337 7.25002C21.8337 6.09943 20.9009 5.16669 19.7503 5.16669C18.5997 5.16669 17.667 6.09943 17.667 7.25002C17.667 8.40061 18.5997 9.33335 19.7503 9.33335Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+                  <path d="M13.4997 17.6668C15.8009 17.6668 17.6663 15.8013 17.6663 13.5001C17.6663 11.1989 15.8009 9.33344 13.4997 9.33344C11.1985 9.33344 9.33301 11.1989 9.33301 13.5001C9.33301 15.8013 11.1985 17.6668 13.4997 17.6668Z" stroke="#FEFEFE" stroke-opacity="0.996078" stroke-width="2"/>
+                </svg></a>
+              </li>
+              <li>
+                <a href="/" class="text-white me-4"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25 12.5313C25 5.61404 19.4 0 12.5 0C5.6 0 0 5.61404 0 12.5313C0 18.5965 4.3 23.6466 10 24.812V16.2907H7.5V12.5313H10V9.3985C10 6.97995 11.9625 5.01253 14.375 5.01253H17.5V8.77193H15C14.3125 8.77193 13.75 9.33584 13.75 10.0251V12.5313H17.5V16.2907H13.75V25C20.0625 24.3734 25 19.0351 25 12.5313Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+                </svg></a>
+              </li>
+              <li>
+                <a href="/" class="text-white"><svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.1668 20.625L21.5193 16.5L14.1668 12.375V20.625ZM30.5435 9.85875C30.7277 10.505 30.8552 11.3712 30.9402 12.4712C31.0393 13.5712 31.0818 14.52 31.0818 15.345L31.1668 16.5C31.1668 19.5113 30.9402 21.725 30.5435 23.1413C30.1893 24.3787 29.3677 25.1762 28.0927 25.52C27.4268 25.6987 26.2085 25.8225 24.3385 25.905C22.4968 26.0012 20.811 26.0425 19.2527 26.0425L17.0002 26.125C11.0643 26.125 7.36683 25.905 5.90766 25.52C4.63266 25.1762 3.811 24.3787 3.45683 23.1413C3.27266 22.495 3.14516 21.6288 3.06016 20.5288C2.961 19.4288 2.9185 18.48 2.9185 17.655L2.8335 16.5C2.8335 13.4887 3.06016 11.275 3.45683 9.85875C3.811 8.62125 4.63266 7.82375 5.90766 7.48C6.5735 7.30125 7.79183 7.1775 9.66183 7.095C11.5035 6.99875 13.1893 6.9575 14.7477 6.9575L17.0002 6.875C22.936 6.875 26.6335 7.095 28.0927 7.48C29.3677 7.82375 30.1893 8.62125 30.5435 9.85875Z" fill="#FEFEFE" fill-opacity="0.996078"/>
+                </svg></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--Temukan Kami End-->
+      </div>
+
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="mb-4" />
+
+    <!-- Section: CTA -->
+    <section class="">
+      <p class="d-flex justify-content-center align-items-center">
+        <span class="me-3">Register for free</span>
+        <a href="/register" class="sign-up btn btn-outline-light btn-rounded text-decoration-none text-white">
+          Sign up!
+        </a>
+      </p>
+    </section>
+  </div>
+  <!-- Grid container -->
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2024 Copyright:
+    <a class="text-white text-decoration-none" href="/">nay</a>
+  </div>
+</footer>
+<!-- Footer Desktop End -->
+
+<!-- Footer Mobile Start -->
+<div class="text-center mt-2 align-items-end d-lg-none bottom-0 overflow-hidden left-0 w-100">
+  <div class="row align-items-end border-top p-2">
+    <div class="col">
+     <a href="/contact" class="text-decoration-none mobile-footer text-dark">
+       Kontak
+     </a> 
+    </div>
+    <div class="col">
+      <a href="/about" class="text-decoration-none text-dark mobile-footer">
+        Tentang nay
+      </a>
+    </div>
+    <div class="col">
+      <a href="/login" class="text-decoration-none text-dark mobile-footer">
+        Login
+      </a>
+    </div>
+  </div>
+  <div class="row align-items-end border-top border-bottom mb-3 p-2">
+    <div class="col">
+      <a href="/support" class="text-decoration-none text-dark mobile-footer">
+        Bantuan
+      </a>
+    </div>
+    <div class="col">
+      <a href="/term-of-us" class="text-decoration-none text-dark mobile-footer">
+      Syarat Dan Ketentuan
+    </a>
+    </div>
+    <div class="col">
+      <a href="/privacy-policy" class="text-decoration-none text-dark mobile-footer">
+        Kebijakan Privasi
+      </a>
+    </div>
+  </div>
+  <div class="row align-items-end mb-1">
+    <div class="col">
+      <a href="/" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/c/men" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/cart" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/whishlist" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+        </svg>
+      </a>
+    </div>
+    <div class="col">
+      <a href="/dashboard/{{ .user.Id }}" class="text-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="row align-items-end">
+      <div class="col footer-mobile">
+        Home
+      </div>
+      <div class="col footer-mobile">
+        Kategori
+      </div>
+      <div class="col footer-mobile">
+        Keranjang
+      </div>
+      <div class="col footer-mobile">
+       Wishlist
+      </div>
+      <div class="col footer-mobile">
+        Akun 
+      </div>
+  </div>
+  </div>
+  <!-- Footer Mobile End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
