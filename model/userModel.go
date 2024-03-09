@@ -62,8 +62,9 @@ func AuthenticateUser(email, password string) (bool, error) {
 	err := v.Struct(Use)
 	if err != nil {
 		fmt.Println("Validation Error")
-		return false, err
+		return false, nil
 	}
+
 	var user User
 	con := database.Database()
 	sqlstmt := "SELECT * FROM users WHERE email = ?"
@@ -71,12 +72,13 @@ func AuthenticateUser(email, password string) (bool, error) {
 	if err != nil {
 		fmt.Printf("Email: %v", email)
 		fmt.Println("No Row Selected")
-		return false, err
+		return false, nil
 	}
+
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	if err != nil {
 		fmt.Println("Compare Password Error")
-		return false, err
+		return false, nil
 	}
 
 	return true, nil

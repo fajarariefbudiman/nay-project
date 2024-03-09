@@ -28,6 +28,11 @@
                 <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
                 <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
+            {{ if .Auth }}
+           <a href="/dashboard/{{ .user.Id }}" class="text-decoration-none text-white">
+             <span class="ms-4 mt-2 me-3">Hi, {{.user.Firstname }}</span>
+           </a>
+           {{ else }}
             <div class="ms-3 me-4">
                 <a href="/register">
                     <svg width="41" height="34" viewBox="0 0 41 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +40,7 @@
                     </svg>
                 </a>
             </div>
+          {{ end }}
             <div>
                 <a href="/cart">
                     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -347,9 +353,15 @@
     </a>
   </div>
   <div class="col">
+    {{ if .Auth }}
+    <a href="/logout" class="text-decoration-none text-dark mobile-footer">
+      Logout
+    </a>
+    {{ else }}
     <a href="/login" class="text-decoration-none text-dark mobile-footer">
       Login
     </a>
+    {{ end }}
   </div>
 </div>
 <div class="row align-items-end border-top border-bottom mb-3 p-2">

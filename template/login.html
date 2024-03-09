@@ -19,13 +19,16 @@
         <form class="p-3 mt-3" method="post" action="/login">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off">
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="password" name="password" id="password" placeholder="Password" required autocomplete="off">
             </div>
             <button type="submit" class="btn text-white mt-3">Login</button>
+            {{ if ne .errorText "" }}
+                <div class="alert alert-danger mt-3">{{ .errorText }}</div>
+            {{ end }}
         </form>
         <div class="text-center fs-6">
             <a href="/forgot-password" class="text-decoration-none text-secondary">Forget password?</a> or <a href="/register" class="text-decoration-none text-secondary">Register</a>
@@ -44,11 +47,11 @@
         <form class="p-3 mt-3" method="post" action="/login">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" name="email" id="email" placeholder="Email">
+                <input type="text" name="email" id="email" placeholder="Email" required autocomplete="off">
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Password">
+                <input type="password" name="password" id="pwd" placeholder="Password" required autocomplete="off">
             </div>
             <button type="submit" class="btn text-white mt-3">Login</button>
         </form>

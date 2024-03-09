@@ -1,17 +1,15 @@
 package controller
 
 import (
-	"fmt"
 	"html/template"
 	"jar-project/model"
 	"net/http"
-	"strconv"
 
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 )
 
-func Cart(c echo.Context) error {
+func Checkout(c echo.Context) error {
 	renderer := &TemplateRenderer{
 		Template: template.Must(template.ParseGlob("./template/*.html")),
 	}
@@ -30,6 +28,10 @@ func Cart(c echo.Context) error {
 		if err != nil {
 			return c.JSON(http.StatusInternalServerError, err.Error())
 		}
+		address, err := model.GetAddress(userID)
+		if err != nil {
+			return err
+		}
 		cart_items, err := model.GetAllCartItems(userID)
 		if err != nil {
 			return c.Redirect(http.StatusSeeOther, "/p/:slug")
@@ -38,54 +40,15 @@ func Cart(c echo.Context) error {
 		if err != nil {
 			return c.Redirect(http.StatusSeeOther, "/p/:slug")
 		}
-		return renderer.Render(c.Response().Writer, "cart.html", map[string]interface{}{
+		return renderer.Render(c.Response().Writer, "checkout.html", map[string]interface{}{
 			"products":          product,
 			"discountedProduct": discountProduct,
 			"Auth":              isAuthenticated,
+			"addresses":         address,
 			"user":              user,
 			"cart_items":        cart_items,
 			"cart_item":         cart_item,
 		}, c)
 	}
 	return c.Redirect(http.StatusSeeOther, "/login")
-}
-
-func AddCart(c echo.Context) error {
-	productId := c.FormValue("product_id")
-	id, err := strconv.Atoi(productId)
-	if err != nil {
-		fmt.Println("ProductId")
-		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
-			"Message": err,
-		})
-	}
-	quantity := c.FormValue("quantity")
-	qty, err := strconv.Atoi(quantity)
-	if err != nil {
-		fmt.Println("Quantity")
-		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
-			"Message": err,
-		})
-	}
-	price := c.FormValue("price")
-	strPrice, err := strconv.Atoi(price)
-	if err != nil {
-		fmt.Println("UserId")
-		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
-			"Message": err,
-		})
-	}
-	userid := c.FormValue("user_id")
-	userId, err := strconv.Atoi(userid)
-	if err != nil {
-		fmt.Println("UserId")
-		return c.JSON(http.StatusInternalServerError, map[string]interface{}{
-			"Message": err,
-		})
-	}
-	err = model.CreateCartItems(userId, id, qty, strPrice)
-	if err != nil {
-		return err
-	}
-	return c.Redirect(http.StatusSeeOther, "/cart")
 }

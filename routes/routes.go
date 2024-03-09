@@ -9,6 +9,7 @@ import (
 )
 
 func Routes() *echo.Echo {
+	//Login Register Validasi
 	e := echo.New()
 	var sessionStore = sessions.NewCookieStore([]byte("jare-key"))
 
@@ -21,13 +22,18 @@ func Routes() *echo.Echo {
 	e.GET("/dashboard/:id", controller.Dashboard)
 	e.GET("/cart", controller.Cart) // unfinished mobile and price
 	e.POST("/p/:slug", controller.AddCart)
+	e.GET("/checkout", controller.Checkout) //unfinished
+	e.GET("/wallet", controller.WalletPage) //unfinished
+	e.GET("/cashback", controller.Cashback) //unfinished
+	e.GET("/order", controller.Order)       //unfinished
+	e.GET("/review", controller.Review)     //unfinished
 
 	//user
 	e.POST("/dashboard/:id", controller.AddAddresses)
 	e.GET("/forgot-password", controller.ForgotPasswordPage)
 	e.POST("/forgot-password", controller.ForgotPassword)
 	e.GET("/reset-password", controller.ResetPasswordPage)
-	e.POST("/reset-password", controller.ResetPassword)
+	e.PUT("/reset-password", controller.ResetPassword)
 	e.GET("/login", controller.Login)
 	e.POST("/login", controller.LoginUser)
 	e.GET("/logout", controller.Logout)

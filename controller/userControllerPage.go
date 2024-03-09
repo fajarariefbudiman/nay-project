@@ -23,7 +23,8 @@ func Login(c echo.Context) error {
 		Template: template.Must(template.ParseGlob("./template/*.html")),
 	}
 	return renderer.Render(c.Response().Writer, "login.html", map[string]interface{}{
-		"user": nil,
+		"user":      nil,
+		"errorText": "",
 	}, c)
 }
 
@@ -82,18 +83,30 @@ func CreateUser(c echo.Context) error {
 }
 
 func LoginUser(c echo.Context) error {
+	renderer := &TemplateRenderer{
+		Template: template.Must(template.ParseGlob("./template/*.html")),
+	}
 	email := c.FormValue("email")
 	password := c.FormValue("password")
 	result, err := model.AuthenticateUser(email, password)
 	if err != nil {
-		return c.Redirect(http.StatusSeeOther, "/login")
+		return renderer.Render(c.Response().Writer, "login.html", map[string]interface{}{
+			"user":      nil,
+			"errorText": "Error Password or Email",
+		}, c)
 	}
 	if !result {
-		return c.Redirect(http.StatusSeeOther, "/login")
+		return renderer.Render(c.Response().Writer, "login.html", map[string]interface{}{
+			"user":      nil,
+			"errorText": "Error Password or Email",
+		}, c)
 	}
 	user, err := model.GetUserByEmail(email)
 	if err != nil {
-		return c.JSON(http.StatusInternalServerError, err.Error())
+		return renderer.Render(c.Response().Writer, "login.html", map[string]interface{}{
+			"user":      nil,
+			"errorText": "Error Password or Email",
+		}, c)
 	}
 	sess, _ := session.Get("session", c)
 	sess.Options = &sessions.Options{

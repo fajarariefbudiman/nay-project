@@ -9,7 +9,6 @@
   </head>
   <body>
      <!-- Nav Start -->
-
      <!-- Mobile Nav -->
      <nav class="navbar navbar-expand-lg sticky-lg-top nav-products d-lg-none">
         <div class="container">
@@ -40,7 +39,7 @@
       <!-- End -->
     <!-- Nav End -->
     
-    {{ if eq .cart.Quantity 0 }}
+    {{ if eq .cart_item.Quantity 0 }}
    <!-- Cart == 0 -->
    <div class="container mb-5">
     <h6 class="text-center mt-5">Keranjang Anda Kosong</h6>
@@ -67,7 +66,7 @@
                           <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
                         </div>
                         <hr class="my-4">
-                        {{ range $i,$carts := .carts }}
+                        {{ range $i,$carts := .cart_items }}
                         {{ range $j, $product := $carts.Products }}
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                           <div class="col-md-2 col-lg-2 col-xl-2">
@@ -84,15 +83,14 @@
                               onclick="this.parentNode.querySelector('input[type=number]').stepDown()">                     
                             </button>      
                             <input id="form1" min="0" name="quantity" max="{{ $product.Quantity }}" value="{{ $carts.Quantity }}" type="number"
-                              class="form-control form-control-sm" />
-      
+                              class="form-control form-control-sm" />      
                             <button class="btn btn-link px-2"
                               onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                               <i class="fas fa-plus"></i>
                             </button>
                           </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0" id="totalPrice">Rp </h6>
+                            <h6 class="mb-0">Rp {{ $carts.Base_Price }}</h6>
                           </div>
                         </div>
                         {{ end }}
@@ -107,12 +105,10 @@
                         <hr class="my-4">
       
                         <div class="d-flex justify-content-between mb-4">
-                          <h5 class="text-uppercase">items 2</h5>
-                          <h5>€ 132.00</h5>
-                        </div>
-      
-                        <h5 class="text-uppercase mb-3">Shipping</h5>
-                        
+                          <h5 class="text-uppercase">items {{ .cart_item.Quantity }}</h5>
+                          <h5>Rp {{.cart_item.Base_Price }}</h5>
+                        </div>     
+                        <h5 class="text-uppercase mb-3">Shipping</h5>                       
                         <div class="mb-4 pb-2">
                           <select class="select">
                             <option value="1">Standard-Delivery- €5.00</option>
@@ -135,7 +131,7 @@
       
                         <div class="d-flex justify-content-between mb-5">
                           <h5 class="text-uppercase">Total price</h5>
-                          <h5>€ 137.00</h5>
+                          <h5>Rp {{ .cart_item.Base_Price }} </h5>
                         </div>     
                         <button type="submit" class="btn btn-dark btn-block btn-lg"
                         data-mdb-ripple-color="dark">Checkout</button>
@@ -190,7 +186,7 @@
             <!-- End -->    
 
             <!-- Footer Desktop Start -->
- <footer class="text-center d-lg-block d-none text-lg-start text-white" style="background-color: #3a3b39">
+          <footer class="text-center d-lg-block d-none text-lg-start text-white" style="background-color: #3a3b39">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
     <!-- Section: Links -->
@@ -302,8 +298,8 @@
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2024 Copyright:
     <a class="text-white text-decoration-none" href="/">nay</a>
   </div>
-</footer>
-<!-- Footer Desktop End -->
+          </footer>
+            <!-- Footer Desktop End -->
 
 <!-- Footer Mobile Start -->
 <div class="text-center mt-2 align-items-end d-lg-none bottom-0 overflow-hidden left-0 w-100">

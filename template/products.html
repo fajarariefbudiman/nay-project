@@ -111,8 +111,8 @@
                 <span class="text-success ms-2">In stock</span>
               </div>
               <div class="mb-3">
+                <input type="hidden" name="price" value="{{ .product.Price }}">
                 <span class="h5">Rp {{ .product.Price }}</span>
-                <span class="text-muted">/per box</span>
               </div>
               <p>
                 {{ .product.Body }}    
