@@ -3,180 +3,100 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cashback</title>
+    <title>List Produk</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/list.css">
   </head>
   <body>
-     <!-- Nav Start -->
-
+    <!-- Nav Start -->
      <!-- Mobile Nav -->
      <nav class="navbar navbar-expand-lg sticky-lg-top nav-products d-lg-none">
-        <div class="container-fluid">
-          <a class="fajar-mobile ms-0 text-decoration-none fajar-products ms-4 d-lg-none" href="/">nay</a>
-         <a href="" class="text-dark me-2">
-             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                 <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                </svg>
-            </a>
-        </div> 
-      </nav>
-      <!-- End -->
-
-      <!-- Desktop Nav -->
-      <nav class="navbar navbar-expand-lg navbar-custom-desktop d-none d-lg-block sticky-lg-top">
-        <div class="container-fluid">
-          <a class="text-decoration-none fajar-products ms-4 d-lg-block d-none" href="/">nay</a>
-            <div>
-                <a href="" class="text-dark me-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                       </svg>
-                   </a>
-            </div>
-          </div>
-        </div>
+      <div class="container">
+        <a class="fajar-mobile ms-0 text-decoration-none fajar-products ms-4 d-lg-none" href="/">nay</a>
+      </div> 
     </nav>
-      <!-- End -->
-    <!-- Nav End -->
-
-    <!-- Content Start Mobile -->
-    <div class="container d-lg-none">
-        <p class="fw-medium mt-3">
-            Hi, {{ .user.Firstname }} {{ .user.Lastname }}
-        </p>
-        <hr>
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
-                <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a2 2 0 0 1-1-.268M1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1"/>
-        </svg>
-        <a href="/wallet" class="text-decoration-none text-dark">Dompet <span class="text-success">(Rp 0)</span></a>
-    </div>
-      <hr>
-      <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-coin" viewBox="0 0 16 16">
-              <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
-              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-              <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
-            </svg>
-            <a href="/cashback" class="text-decoration-none text-dark">Cashback <span class="text-success">(Rp 20.000)</span></a>
-        </div>
-        <hr>
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
-                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
-                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
-            </svg>
-      <a href="/order" class="text-decoration-none text-dark">Status Pesanan</a>
-    </div>
-      <hr>
-      <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-              <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-            </svg>
-            <a href="/review" class="text-decoration-none text-dark">Ulasan Saya</a>
-        </div>
-        <hr>
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                <path d="M7.5 1v7h1V1z"/>
-                <path d="M3 8.812a5 5 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812"/>
-            </svg>
-            <a href="/logout" class="text-decoration-none text-dark">Logout</a>
-        </div>
-        <hr>
-    </div>
-        <!-- Mobile End -->
-
-        <!-- Content Desktop -->
-        <div class="container d-none d-lg-flex flex-wrap my-5">
-          <div class="col-3 border">
-            <div class="text-dark text-center fw-medium p-2">Akun Saya</div>
-          <a href="/dashboard/{{ .user.Id }}" class="text-dark">
-            <div class="fw-normal p-2">Akun Saya</div>
-          </a>
-          <a href="/wallet" class="text-dark">
-            <div class="fw-normal p-2">Dompet</div>
-          </a>
-          <a href="/cashback" class="text-white">
-            <div class="fw-normal p-2 text-white bg-dark">Cashback</div>
-          </a>
-          <a href="/order" class="text-dark">
-            <div class="fw-normal p-2">Status Pesanan</div>
-          </a>
-          <a href="/review" class="text-dark">
-            <div class="fw-normal p-2">Ulasan Saya</div>
-          </a>
-          <a href="/logout" class="text-dark">
-            <div class="fw-normal p-2">Logout</div>
-          </a>
-          </div>
-          <div class="col-8 ms-2 border">
-            <div class="text-dark text-center fw-medium p-2 bg-secondary">Informasi Kontak</div>
-            <div class="fw-lighter p-2 ms-3">Nama : <span class="ms-5">{{ .user.Firstname }} {{ .user.Lastname }}</span></div>
-            <div class="fw-lighter p-2 ms-3">Email : <span class="ms-5">{{ .user.Email }}</span></div>
-            <div class="fw-lighter p-2 ms-3">Password : <span class="ms-5"> ******** </span></div>
-            <a href="/forgot-password" class="text-decoration-none ms-3 p-2"> forgot password?</a>
-          </div>
-
-          <div class="col-3 bg-transparent">
-          </div>
-          {{ if eq .addresses.User_Id 0}}
-          <form action="/dashboard/{{ .user.Id }}" method="post" class="col-8 ms-2 border mt-3">
-            <div class="row m-4">
-              <div class="col">
-                <input type="text" class="form-control" name="firstName" placeholder="First name" aria-label="First name">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" name="lastName" placeholder="Last name" aria-label="Last name">
-              </div>
-            </div>
-            <div class="row m-4">
-              <div class="col-4">
-                <input type="text" class="form-control" name="phone" placeholder="Nomor HP" aria-label="Nomor HP">
-              </div>
-            </div>
-            <div class="row m-4">
-              <div class="col-6">
-                <input type="text" class="form-control" name="address1" placeholder="Alamat" aria-label="Alamat">
-              </div>
-            </div>
-            <div class="row m-4">
-              <div class="col">
-                <input type="text" class="form-control" name="province" placeholder="Provinsi" aria-label="Provinsi">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" name="city" placeholder="Kabupaten" aria-label="Kabupaten">
-              </div>
-            </div>
-            <div class="row m-4">
-              <div class="col">
-                <input type="text" class="form-control"name="subdistrict" placeholder="Kecamatan" aria-label="Kecamatan">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" name="postCode" placeholder="Kode Pos" aria-label="Kode Pos">
-              </div>
-            </div>
-            <div class="row m-4">
-              <div class="col">
-            <button type="submit" class="btn btn-secondary">Tambah Alamat</button>
-              </div>
-            </div>
+    <div class="search container d-lg-none">
+        <form action="" role="search" class="d-flex">
+            <input type="search" name="search" class="input" placeholder="Search From Products" id="search">
           </form>
-          {{ else }}
-          <div class="col-8 ms-2 border border-top-0 mt-3">
-            <div class="bg-secondary text-center pe-2 py-2"> Alamat Saya </div>
-            <hr class="mx-4 my-3">
-            <div class="fs-6 fw-medium text-secondary p-2 ms-3">Alamat</div>
-            <div class="fw-lighter p-2 ms-3">{{ .addresses.Firstname }} {{ .addresses.Lastname }}, {{ .addresses.Phone }}</div>
-            <div class="fw-lighter p-2 ms-3 mb-5">{{ .addresses.Address1 }}, {{ .addresses.Subdistrict }}, {{ .addresses.City }}, {{ .addresses.Province}},{{ .addresses.Postcode }} </div>
-          </div>
-          {{ end }}
-        </div>
-        <!-- Desktop End -->
+    </div>
+    <!-- End -->
 
-     
- <!-- Footer Desktop Start -->
+    <!-- Desktop Nav -->
+    <nav class="navbar navbar-expand-lg navbar-custom-desktop d-none d-lg-block sticky-lg-top">
+      <div class="container-fluid">
+        <a class="text-decoration-none fajar-products ms-4 d-lg-block d-none" href="/">nay</a>
+        <div class="collapse d-none d-lg-block navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-2  mb-lg-0">
+            {{ range $i,$category := .categories }}
+            <li class="nav-item">
+              <a class="nav-link nav-menu-products text-secondary" href="/c/{{ $category.Slug }}">{{ $category.Name }}</a>
+            </li>
+            {{ end }}
+          </ul>
+          <form class="search-form" role="search">
+              <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <div class="ms-3 me-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2s" height="25" fill="#3a3b39" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+            </svg>
+           {{ if .Auth }}
+           <a href="/dashboard/{{ .user.Id }}" class="text-decoration-none text-dark">
+             <span class="ms-2 mt-2">Hi, {{.user.Firstname }}</span>
+           </a>
+           {{ else }}
+            <a href="/login" class="text-decoration-none text-dark"> Login </a> / <a href="/register" class="text-decoration-none text-dark"> Register </a>
+             {{ end }}
+          </div>
+          <div>
+               <a href="/cart" class="text-decoration-none shopping-cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#3a3b39" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                </svg>
+                <span class="bg-danger text-white p-1 d-inline-block position-absolute rounded-circle">10</span>
+              </a> 
+          </div>
+        </div>
+      </div>
+  </nav>
+    <!-- End -->
+  <!-- Nav End -->
+  <section class="section-products">
+		<div class="container">
+				<div class="row justify-content-center text-center">
+						<div class="col-md-8 col-lg-6">
+								<div class="header">
+										<h3>Featured Product</h3>
+										<h2>Popular Products</h2>
+								</div>
+						</div>
+				</div>
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+								<div id="product-1" class="single-product">
+										<div class="part-1">
+												<ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul>
+										</div>
+										<div class="part-2">
+												<h3 class="product-title">Here Product Title</h3>
+												<h4 class="product-old-price">$79.99</h4>
+												<h4 class="product-price">$49.99</h4>
+										</div>
+								</div>
+						</div>
+						
+				</div>
+		</div>
+</section>
+      <!-- Footer Desktop Start -->
  <footer class="text-center d-lg-block d-none text-lg-start text-white" style="background-color: #3a3b39">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
@@ -287,13 +207,13 @@
   <!-- Grid container -->
 
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2024 Copyright:
-    <a class="text-white text-decoration-none" href="/">fajar</a>
+    <a class="text-white text-decoration-none" href="/">nay</a>
   </div>
 </footer>
 <!-- Footer Desktop End -->
 
 <!-- Footer Mobile Start -->
-<div class="text-center mt-2 align-items-end d-lg-none bottom-0 overflow-hidden position-fixed left-0 w-100">
+<div class="text-center mt-2 align-items-end d-lg-none bottom-0 overflow-hidden left-0 w-100">
   <div class="row align-items-end border-top p-2">
     <div class="col">
      <a href="/contact" class="text-decoration-none mobile-footer text-dark">
@@ -307,14 +227,14 @@
     </div>
     <div class="col">
       {{ if .Auth }}
-            <a href="/logout" class="text-decoration-none text-dark mobile-footer">
-             Logout
-            </a>
-            {{ else }}
-            <a href="/login" class="text-decoration-none text-dark mobile-footer">
-             Login
-            </a>
-            {{ end }}
+    <a href="/logout" class="text-decoration-none text-dark mobile-footer">
+      Logout
+    </a>
+    {{ else }}
+    <a href="/login" class="text-decoration-none text-dark mobile-footer">
+      Login
+    </a>
+    {{ end }}
     </div>
   </div>
   <div class="row align-items-end border-top border-bottom mb-3 p-2">
@@ -390,6 +310,7 @@
   </div>
   </div>
   <!-- Footer Mobile End -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
+      <!-- <script src="../static/js/script.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
 </html>

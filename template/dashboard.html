@@ -306,9 +306,15 @@
       </a>
     </div>
     <div class="col">
-      <a href="/login" class="text-decoration-none text-dark mobile-footer">
-        Login
-      </a>
+      {{ if .Auth }}
+    <a href="/logout" class="text-decoration-none text-dark mobile-footer">
+      Logout
+    </a>
+    {{ else }}
+    <a href="/login" class="text-decoration-none text-dark mobile-footer">
+      Login
+    </a>
+    {{ end }}
     </div>
   </div>
   <div class="row align-items-end border-top border-bottom mb-3 p-2">

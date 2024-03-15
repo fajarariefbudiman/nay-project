@@ -24,8 +24,8 @@
               </li>
               {{ end }}
             </ul>
-            <form class="search-form" role="search">
-                <input class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
+            <form class="search-form" action="" method="get" role="search">
+                <input name="search" class="form-control search-input" type="search" placeholder="Search" aria-label="Search">
                 <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
             </form>
             {{ if .Auth }}
@@ -57,7 +57,7 @@
 
      <!-- Search Mobile -->
      <div class="search container d-lg-none">
-      <form action="" role="search" class="d-flex">
+      <form action="" role="search" class="d-flex" method="get">
         <input type="search" name="search" class="input" placeholder="Search From Products" id="search">
       </form>
      </div>

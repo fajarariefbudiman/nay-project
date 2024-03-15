@@ -1,10 +1,12 @@
 package controller
 
 import (
+	"fmt"
 	"html/template"
 	"io"
 	"jar-project/model"
 	"net/http"
+	"strconv"
 
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
@@ -40,6 +42,19 @@ func Home(c echo.Context) error {
 			"Auth":       isAuthenticated,
 			"user":       user,
 			"categories": category,
+		}, c)
+	}
+	search := c.QueryParam("search")
+	strsearch, _ := strconv.ParseBool(search)
+	if strsearch {
+		fmt.Println(strsearch)
+	}
+	result, err := model.SearchProduct(search)
+	if err != nil {
+		return renderer.Render(c.Response().Writer, "index.html", map[string]interface{}{
+			"user":      nil,
+			"errorText": "Tidak Produk Yang Sesuai",
+			"result":    result,
 		}, c)
 	}
 	return renderer.Render(c.Response().Writer, "index.html", map[string]interface{}{

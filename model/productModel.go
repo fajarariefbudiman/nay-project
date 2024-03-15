@@ -2,7 +2,9 @@ package model
 
 import (
 	"database/sql"
+	"fmt"
 	"jar-project/database"
+	"log"
 )
 
 type Product struct {
@@ -99,4 +101,25 @@ func GetProductById(id int) (Product, error) {
 		}
 	}
 	return get, nil
+}
+
+func SearchProduct(search string) ([]Product, error) {
+	var get Product
+	cond := database.Database()
+	rows, err := cond.Query("SELECT * FROM products WHERE name LIKE ?", "%"+search+"%")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var products []Product
+	for rows.Next() {
+		err := rows.Scan(&get.Id, &get.Name, &get.Description, &get.Slug, &get.Price, &get.Quantity, &get.Sub_Category_Id,
+			&get.Discount, &get.Created_At, &get.Updated_At, &get.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+		products = append(products, get)
+	}
+	fmt.Print("All products", products)
+	return products, nil
 }

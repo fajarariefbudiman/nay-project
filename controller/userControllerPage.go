@@ -92,7 +92,7 @@ func LoginUser(c echo.Context) error {
 	if err != nil {
 		return renderer.Render(c.Response().Writer, "login.html", map[string]interface{}{
 			"user":      nil,
-			"errorText": "Error Password or Email",
+			"errorText": "Validation Error",
 		}, c)
 	}
 	if !result {
