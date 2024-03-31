@@ -1,12 +1,11 @@
 package controller
 
 import (
-	"fmt"
 	"html/template"
 	"io"
 	"jar-project/model"
 	"net/http"
-	"strconv"
+	"net/url"
 
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
@@ -31,6 +30,18 @@ func Home(c echo.Context) error {
 	if err != nil {
 		return err
 	}
+	discountProduct, err := model.GetProductDiscount()
+	if err != nil {
+		return err
+	}
+	search := c.QueryParam("search")
+	if search != "" {
+		u, _ := url.Parse("/p")
+		q := u.Query()
+		q.Set("search", search)
+		u.RawQuery = q.Encode()
+		return c.Redirect(http.StatusSeeOther, u.String())
+	}
 	sess, _ := session.Get("session", c)
 	isAuthenticated := true
 	if userID, ok := sess.Values["user_id"].(int); ok {
@@ -42,22 +53,15 @@ func Home(c echo.Context) error {
 			"Auth":       isAuthenticated,
 			"user":       user,
 			"categories": category,
-		}, c)
-	}
-	search := c.QueryParam("search")
-	strsearch, _ := strconv.ParseBool(search)
-	if strsearch {
-		fmt.Println(strsearch)
-	}
-	result, err := model.SearchProduct(search)
-	if err != nil {
-		return renderer.Render(c.Response().Writer, "index.html", map[string]interface{}{
-			"user":      nil,
-			"errorText": "Tidak Produk Yang Sesuai",
-			"result":    result,
+			"discountedProduct": discountProduct,
+			
 		}, c)
 	}
 	return renderer.Render(c.Response().Writer, "index.html", map[string]interface{}{
 		"categories": category,
+		"discountedProduct": discountProduct,
+	
 	}, c)
 }
+
+

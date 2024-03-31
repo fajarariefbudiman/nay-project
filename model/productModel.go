@@ -2,7 +2,6 @@ package model
 
 import (
 	"database/sql"
-	"fmt"
 	"jar-project/database"
 	"log"
 )
@@ -24,7 +23,7 @@ type Product struct {
 
 func GetProductDiscount() ([]Product, error) {
 	cond := database.Database()
-	sqlstmt := "SELECT name,description,slug,price,sub_category_id,body FROM products"
+	sqlstmt := "SELECT name,description,slug,price,quantity,discount,sub_category_id,body FROM products"
 	rows, err := cond.Query(sqlstmt)
 	if err != nil {
 		return nil, err
@@ -33,7 +32,7 @@ func GetProductDiscount() ([]Product, error) {
 	var products []Product
 	for rows.Next() {
 		var p Product
-		if err := rows.Scan(&p.Name, &p.Description, &p.Slug, &p.Price, &p.Sub_Category_Id, &p.Body); err != nil {
+		if err := rows.Scan(&p.Name, &p.Description, &p.Slug, &p.Price, &p.Quantity, &p.Discount, &p.Sub_Category_Id, &p.Body); err != nil {
 			return nil, err
 		}
 		p.DiscountedPrice = (float64(p.Price) / 100) * p.Discount
@@ -118,8 +117,8 @@ func SearchProduct(search string) ([]Product, error) {
 		if err != nil {
 			log.Fatal(err)
 		}
+		get.DiscountedPrice = (float64(get.Price) / 100) * get.Discount
 		products = append(products, get)
 	}
-	fmt.Print("All products", products)
 	return products, nil
 }

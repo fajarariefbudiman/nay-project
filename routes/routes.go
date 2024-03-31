@@ -19,21 +19,23 @@ func Routes() *echo.Echo {
 	e.GET("/", controller.Home)
 	e.GET("/c/:slug", controller.Category)
 	e.GET("/p/:slug", controller.Product)
-	e.GET("/dashboard/:id", controller.Dashboard)
+	e.GET("/dashboard/:id", controller.Dashboard) //ui
 	e.GET("/cart", controller.Cart) // unfinished mobile and price
-	e.POST("/p/:slug", controller.AddCart)
+	e.GET("/p",controller.ListProduct)
+	e.GET("/c/:category/:subCategory",controller.GetProductBySubCategory)
 	e.GET("/checkout", controller.Checkout) //unfinished
 	e.GET("/wallet", controller.WalletPage) //unfinished
 	e.GET("/cashback", controller.Cashback) //unfinished
 	e.GET("/order", controller.Order)       //unfinished
 	e.GET("/review", controller.Review)     //unfinished
+	e.POST("/p/:slug", controller.AddCart)
 
 	//user
 	e.POST("/dashboard/:id", controller.AddAddresses)
 	e.GET("/forgot-password", controller.ForgotPasswordPage)
 	e.POST("/forgot-password", controller.ForgotPassword)
 	e.GET("/reset-password", controller.ResetPasswordPage)
-	e.PUT("/reset-password", controller.ResetPassword)
+	e.POST("/reset-password", controller.ResetPassword)
 	e.GET("/login", controller.Login)
 	e.POST("/login", controller.LoginUser)
 	e.GET("/logout", controller.Logout)

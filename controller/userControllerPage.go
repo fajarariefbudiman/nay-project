@@ -174,5 +174,5 @@ func ResetPassword(c echo.Context) error {
 	}
 	log.Printf("Password reset for email: %s. New password: %s\n", email, newPassword)
 	delete(otpStore, email)
-	return c.Redirect(http.StatusSeeOther, "/c/men")
+	return c.Redirect(http.StatusSeeOther, "/login")
 }

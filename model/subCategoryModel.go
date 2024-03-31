@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	"jar-project/database"
 )
 
@@ -10,7 +11,44 @@ type SubCategory struct {
 	Category_Id int
 	Slug        string
 	Category    Category
+	Product 	[]Product
 }
+
+func SubCategoryProduct(slugCategory, slugSubCategory string) ([]Product, error) {
+	var products []Product
+	cond := database.Database()
+	var categoryId int
+	query := "SELECT id FROM categories WHERE slug = ?"
+	err := cond.QueryRow(query, slugCategory).Scan(&categoryId)
+	if err != nil {
+		return nil, err
+	}
+	var subCategoryId int
+	query = "SELECT id FROM sub_categories WHERE category_id = ? AND slug = ?"
+	err = cond.QueryRow(query, categoryId, slugSubCategory).Scan(&subCategoryId)
+	if err != nil {
+		return nil, err
+	}
+	query = "SELECT * FROM products WHERE sub_category_id = ?"
+	rows, err := cond.Query(query, subCategoryId)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var product Product
+		err := rows.Scan(&product.Id, &product.Name, &product.Description, &product.Slug, &product.Price, &product.Quantity,
+			&product.Discount, &product.Sub_Category_Id, &product.Created_At, &product.Updated_At, &product.Body)
+		if err != nil {
+			fmt.Println("Error scanning product:", err)
+			return nil, err
+		}
+		product.DiscountedPrice = (float64(product.Price) / 100) * product.Discount
+		products = append(products, product)
+	}
+	return products, nil
+}
+
 
 func GetSubCategoryByCategorySlug(categorySlug string) ([]SubCategory, error) {
 	var subCategories []SubCategory
@@ -43,3 +81,6 @@ func GetSubCategoryByCategorySlug(categorySlug string) ([]SubCategory, error) {
 	}
 	return subCategories, nil
 }
+
+
+
