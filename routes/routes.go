@@ -25,7 +25,7 @@ func Routes() *echo.Echo {
 	e.GET("/c/:slug", controller.Category)
 	e.GET("/p/:slug", controller.Product)
 	e.GET("/dashboard/:id", controller.Dashboard) //ui
-	e.GET("/cart", controller.Cart) // unfinished mobile and price
+	e.GET("/cart", controller.Cart) // unfinished price
 	e.GET("/p",controller.ListProduct)
 	e.GET("/c/:category/:subCategory",controller.GetProductBySubCategory)
 	e.GET("/checkout", controller.Checkout) //unfinished
