@@ -6,12 +6,17 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func Routes() *echo.Echo {
 	//Login Register Validasi
 	e := echo.New()
 	var sessionStore = sessions.NewCookieStore([]byte("jare-key"))
+
+	e.Use(middleware.CSRFWithConfig(middleware.CSRFConfig{
+		TokenLookup: "input:_csrf", 
+	}))
 
 	e.Use(session.Middleware(sessionStore))
 	// Web
@@ -37,7 +42,7 @@ func Routes() *echo.Echo {
 	e.GET("/reset-password", controller.ResetPasswordPage)
 	e.POST("/reset-password", controller.ResetPassword)
 	e.GET("/login", controller.Login)
-	e.POST("/login", controller.LoginUser)
+	e.POST("/login", controller.LoginUser,)
 	e.GET("/logout", controller.Logout)
 	e.GET("/register", controller.Register)
 	e.POST("/register", controller.CreateUser)

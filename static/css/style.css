@@ -273,7 +273,7 @@ body {
   .pencarian{
     text-decoration: none;
     color: #3a3b39;
-    font-size: 15px;
+    font-size: 5px;
   }
   .footer-mobile{
     font-size: 13px;
@@ -306,8 +306,8 @@ body {
   }
   .selling{
     font-size: 10px;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
   }
   .products{
     width: 205px;

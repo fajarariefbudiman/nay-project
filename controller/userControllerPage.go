@@ -86,6 +86,7 @@ func LoginUser(c echo.Context) error {
 	renderer := &TemplateRenderer{
 		Template: template.Must(template.ParseGlob("./template/*.html")),
 	}
+	c.FormValue("_csrf")
 	email := c.FormValue("email")
 	password := c.FormValue("password")
 	result, err := model.AuthenticateUser(email, password)
@@ -105,7 +106,7 @@ func LoginUser(c echo.Context) error {
 	if err != nil {
 		return renderer.Render(c.Response().Writer, "login.html", map[string]interface{}{
 			"user":      nil,
-			"errorText": "Error Password or Email",
+			"errorText": "User Not Found",
 		}, c)
 	}
 	sess, _ := session.Get("session", c)

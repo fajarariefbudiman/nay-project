@@ -17,6 +17,7 @@
             Login
         </div>
         <form class="p-3 mt-3" method="post" action="/login">
+            <input type="hidden" name="_csrf" value="{{ .csrfToken }}">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
                 <input type="email" name="email" id="email" placeholder="Email" required autocomplete="off">
@@ -24,6 +25,10 @@
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
                 <input type="password" name="password" id="password" placeholder="Password" required autocomplete="off">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-eye me-3" id="toggleBiEyeDesktop" viewBox="0 0 16 16">
+                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                </svg>
             </div>
             <button type="submit" class="btn text-white mt-3">Login</button>
             {{ if ne .errorText "" }}
@@ -45,6 +50,7 @@
             Login
         </div>
         <form class="p-3 mt-3" method="post" action="/login">
+            <input type="hidden" name="_csrf" value="{{ .csrfToken }}">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
                 <input type="text" name="email" id="email" placeholder="Email" required autocomplete="off">
@@ -52,6 +58,10 @@
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
                 <input type="password" name="password" id="pwd" placeholder="Password" required autocomplete="off">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye me-2" id="toggleBiEye" viewBox="0 0 16 16">
+                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                    </svg>
             </div>
             <button type="submit" class="btn text-white mt-3">Login</button>
             {{ if ne .errorText "" }}
@@ -59,10 +69,34 @@
             {{ end }}
         </form>
         <div class="text-center fs-6">
-            <a href="/forgot-password" class="text-decoration-none text-secondary">Forget password?</a> or <a href="/register" class="text-decoration-none text-secondary">Register</a>
+            <a href="/forgot-password" class="text-decoration-none text-secondary">Forgot password?</a> or <a href="/register" class="text-decoration-none text-secondary">Register</a>
         </div>
     </div>
     <!-- Mobile End -->
+    <script>
+        const pwd = document.getElementById('pwd');
+        const password = document.getElementById('password')
+        const eyeToggle = document.getElementById('toggleBiEye');
+        const eyeDesktop = document.getElementById('toggleBiEyeDesktop')
+        eyeToggle.addEventListener('click', () => {
+            if (pwd.getAttribute('type') == 'password') {
+                pwd.setAttribute('type','text');
+            } else { 
+               pwd.setAttribute('type','password'); 
+        }
+    }
+    )
+    eyeDesktop.addEventListener('click', () => {
+            if (password.getAttribute('type') == 'password') {
+                password.setAttribute('type','text');
+            } else { 
+               password.setAttribute('type','password'); 
+        }
+    }
+    )
+   
+       
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
